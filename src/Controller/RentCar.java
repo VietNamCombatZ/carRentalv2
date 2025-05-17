@@ -205,11 +205,7 @@ this.database = database;
 					Rent rent = new Rent();
 
 
-					//old code
-//					String insert = "INSERT INTO `rents`(`ID`, `User`, `Car`, `DateTime`, `Hours`,"
-//							+ " `Total`, `Status`) VALUES ('"+ID+"','"+user.getID()+"',"
-//									+ "'"+car.getID()+"','"+rent.getDateTime()+"','"+hoursInt+"',"
-//											+ "'"+total+"','0');";
+
 
 					String selectedUserId = userIdComboBox.getSelectedItem().toString();
 					if (selectedUserId.equals(" ")) {

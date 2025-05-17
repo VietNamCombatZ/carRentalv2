@@ -58,16 +58,7 @@ public class Main {
 		panel.add(password);
 
 
-		//create new user acc, need delete
-//		JButton createAcc = new JButton("Create New Account", 22);
-//		createAcc.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				new AddNewAccount(0).operation(database, frame, null);
-//				frame.dispose();
-//			}
-//		});
-//		panel.add(createAcc);
+
 		
 		ArrayList<User> users = new ArrayList<>();
 		try {
@@ -96,12 +87,7 @@ public class Main {
 					user.setPassword(pass);
 					users.add(user);
 				}
-//					else if (type != 1) {
 //
-//						JOptionPane.showMessageDialog(frame, "Can't login with this account");
-//						return;
-//
-//					}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

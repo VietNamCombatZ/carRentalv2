@@ -166,18 +166,7 @@ public class AddNewAccount implements Operation {
 				JOptionPane.showMessageDialog(frame, "Account created successfully");
 
 
-				//old code need delete
-//				if (accType==0) {
-//					User user = new Client();
-//					user.setID(ID);
-//					user.setFirstName(firstName.getText());
-//					user.setLastName(lastName.getText());
-//					user.setEmail(email.getText());
-//					user.setPhoneNumber(phoneNumber.getText());
-//					user.setPassword(password.getText());
-//					user.showList(database, frame);
-//					frame.dispose();
-//				}
+
 				
 			} catch (SQLException e1) {
 				JOptionPane.showMessageDialog(frame, e1.getMessage());
