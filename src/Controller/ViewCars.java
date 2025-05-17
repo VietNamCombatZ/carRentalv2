@@ -32,7 +32,7 @@ public class ViewCars implements Operation {
 		JFrame frame = new JFrame("Cars");
 		frame.setSize(1000, 600);
 		frame.setLocationRelativeTo(f);
-		frame.getContentPane().setBackground(new Color(250, 206, 27));
+		frame.getContentPane().setBackground(new Color(135, 206, 235));
 		frame.setLayout(new BorderLayout());
 		
 		JLabel title = new JLabel("Cars", 35);

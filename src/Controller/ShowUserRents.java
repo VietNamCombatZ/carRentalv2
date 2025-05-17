@@ -41,7 +41,7 @@ public class ShowUserRents implements Operation {
 		JFrame frame = new JFrame("Rents");
 		frame.setSize(1200, 600);
 		frame.setLocationRelativeTo(f);
-		frame.getContentPane().setBackground(new Color(250, 206, 27));
+		frame.getContentPane().setBackground(new Color(135, 206, 235));
 		frame.setLayout(new BorderLayout());
 		
 		JLabel title = new JLabel("Rents", 35);

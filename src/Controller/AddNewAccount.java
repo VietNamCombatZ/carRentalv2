@@ -43,7 +43,7 @@ public class AddNewAccount implements Operation {
 		JFrame frame = new JFrame("Create New Account");
 		frame.setSize(600, 600);
 		frame.setLocationRelativeTo(f);
-		frame.getContentPane().setBackground(new Color(250, 206, 27));
+		frame.getContentPane().setBackground(new Color(135, 206, 235));
 		frame.setLayout(new BorderLayout());
 		
 		JLabel title = new JLabel("Welcome to Car Rental System", 35);
@@ -73,16 +73,29 @@ public class AddNewAccount implements Operation {
 		
 		JTextField phoneNumber = new JTextField(22);
 		panel.add(phoneNumber);
-		
-		panel.add(new JLabel("Password:", 22));
-		
+
 		JPasswordField password = new JPasswordField(22);
-		panel.add(password);
-		
-		panel.add(new JLabel("Confirm Password:", 22));
-		
 		JPasswordField confirmPassword = new JPasswordField(22);
-		panel.add(confirmPassword);
+
+
+		if(accType ==1)
+		{
+			panel.add(new JLabel("Password:", 22));
+
+
+			panel.add(password);
+
+			panel.add(new JLabel("Confirm Password:", 22));
+
+
+			panel.add(confirmPassword);
+		}else{
+			password.setText("1234");
+			confirmPassword.setText("1234");
+		}
+
+
+
 		
 		JButton login = new JButton("Login", 22);
 		login.addActionListener(new ActionListener() {
@@ -151,18 +164,20 @@ public class AddNewAccount implements Operation {
 								+ "'"+phoneNumber.getText()+"','"+password.getText()+"','"+accType+"');";
 				database.getStatement().execute(insert);
 				JOptionPane.showMessageDialog(frame, "Account created successfully");
-	
-				if (accType==0) {
-					User user = new Client();
-					user.setID(ID);
-					user.setFirstName(firstName.getText());
-					user.setLastName(lastName.getText());
-					user.setEmail(email.getText());
-					user.setPhoneNumber(phoneNumber.getText());
-					user.setPassword(password.getText());
-					user.showList(database, frame);
-					frame.dispose();
-				}
+
+
+				//old code need delete
+//				if (accType==0) {
+//					User user = new Client();
+//					user.setID(ID);
+//					user.setFirstName(firstName.getText());
+//					user.setLastName(lastName.getText());
+//					user.setEmail(email.getText());
+//					user.setPhoneNumber(phoneNumber.getText());
+//					user.setPassword(password.getText());
+//					user.showList(database, frame);
+//					frame.dispose();
+//				}
 				
 			} catch (SQLException e1) {
 				JOptionPane.showMessageDialog(frame, e1.getMessage());

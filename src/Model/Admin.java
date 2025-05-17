@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 
 import Controller.AddNewAccount;
 import Controller.AddNewCar;
+import Controller.RentCar;
 import Controller.ChangePassword;
 import Controller.DeleteCar;
 import Controller.EditUserData;
@@ -28,6 +29,8 @@ public class Admin extends User {
 				new UpdateCar(),
 				new DeleteCar(),
 				new AddNewAccount(1),
+			    new AddNewAccount(0),
+			    new RentCar(),
 				new ShowAllRents(),
 				new ShowSpecUserRents(),
 				new EditUserData(),
@@ -39,6 +42,8 @@ public class Admin extends User {
 			new JButton("Update Car", 22),
 			new JButton("Delete Car", 22),
 			new JButton("Add New Admin", 22),
+			new JButton("Add New User", 22),
+			new JButton("Add New Rent", 22),
 			new JButton("Show Rents", 22),
 			new JButton("Show User's Rents", 22),
 			new JButton("Edit my Data", 22),
@@ -55,7 +60,7 @@ public class Admin extends User {
 		JFrame frame = new JFrame("Admin Panel");
 		frame.setSize(400, btns.length*80);
 		frame.setLocationRelativeTo(f);
-		frame.getContentPane().setBackground(new Color(250, 206, 27));
+		frame.getContentPane().setBackground(new Color(135, 206, 235));
 		frame.setLayout(new BorderLayout());
 		
 		JLabel title = new JLabel("Welcome "+getFirstName(), 30);

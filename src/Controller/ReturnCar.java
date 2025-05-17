@@ -36,7 +36,7 @@ public class ReturnCar implements Operation {
 		JFrame frame = new JFrame("Return Car");
 		frame.setSize(600, 260);
 		frame.setLocationRelativeTo(f);
-		frame.getContentPane().setBackground(new Color(250, 206, 27));
+		frame.getContentPane().setBackground(new Color(135, 206, 235));
 		frame.setLayout(new BorderLayout());
 		
 		JLabel title = new JLabel("Rent Car", 35);

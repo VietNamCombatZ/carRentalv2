@@ -46,7 +46,7 @@ public class Client extends User {
 		JFrame frame = new JFrame("Client Panel");
 		frame.setSize(400, btns.length*90);
 		frame.setLocationRelativeTo(f);
-		frame.getContentPane().setBackground(new Color(250, 206, 27));
+		frame.getContentPane().setBackground(new Color(135, 206, 235));
 		frame.setLayout(new BorderLayout());
 		
 		JLabel title = new JLabel("Welcome "+getFirstName(), 30);

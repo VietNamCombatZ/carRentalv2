@@ -38,7 +38,7 @@ public class ShowSpecUserRents implements Operation {
 		JFrame frame = new JFrame("Show User's Rents");
 		frame.setSize(600, 260);
 		frame.setLocationRelativeTo(f);
-		frame.getContentPane().setBackground(new Color(250, 206, 27));
+		frame.getContentPane().setBackground(new Color(135, 206, 235));
 		frame.setLayout(new BorderLayout());
 		
 		JLabel title = new JLabel("Rents", 35);
@@ -104,7 +104,7 @@ public class ShowSpecUserRents implements Operation {
 		JFrame frame = new JFrame("Clients List");
 		frame.setSize(1000, 600);
 		frame.setLocationRelativeTo(f);
-		frame.getContentPane().setBackground(new Color(250, 206, 27));
+		frame.getContentPane().setBackground(new Color(135, 206, 235));
 		frame.setLayout(new BorderLayout());
 		
 		JLabel title = new JLabel("Clients", 35);

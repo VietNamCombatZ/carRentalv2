@@ -42,7 +42,7 @@ public class UpdateCar implements Operation {
 		frame = new JFrame("Update Car");
 		frame.setSize(600, 600);
 		frame.setLocationRelativeTo(f);
-		frame.getContentPane().setBackground(new Color(250, 206, 27));
+		frame.getContentPane().setBackground(new Color(135, 206, 235));
 		frame.setLayout(new BorderLayout());
 		
 		JLabel title = new JLabel("Update Car", 35);

@@ -34,7 +34,7 @@ public class AddNewCar implements Operation {
 		JFrame frame = new JFrame("Add New Car");
 		frame.setSize(600, 525);
 		frame.setLocationRelativeTo(f);
-		frame.getContentPane().setBackground(new Color(250, 206, 27));
+		frame.getContentPane().setBackground(new Color(135, 206, 235));
 		frame.setLayout(new BorderLayout());
 		
 		JLabel title = new JLabel("Add New Car", 35);

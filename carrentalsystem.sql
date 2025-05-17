@@ -81,16 +81,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`ID`, `FirstName`, `LastName`, `Email`, `PhoneNumber`, `Password`, `Type`) VALUES
 (0, 'Admin', '0', 'admin', '0000', '0000', 1),
-(1, 'Admin', '2', 'admin2', '222222', '1234', 1),
-(2, 'Client', '1', 'client', '111111', '1111', 0),
-(3, 'Client', '2', 'client2@crs.com', '222222', '2222', 0),
-(4, 'Client', '3', 'client3@crs.com', '333333', '3333', 0),
-(5, 'Client', '4', 'client4@crs.com', '444444', '4444', 0),
-(6, 'Client', '5', 'client5@crs.com', '555555', '5555', 0),
-(7, 'Client', '6', 'client6@crs.com', '666666', '6666', 0),
-(8, 'Client', '7', 'client7@crs.com', '777777', '7777', 0),
-(9, 'Client', '8', 'client8@crs.com', '888888', '8888', 0),
-(10, 'Client', '9', 'client9@crs.com', '999999', '9999', 0);
+(1, 'Admin', '2', 'admin2', '222222', '1234', 1)
+;
 COMMIT;
 
 

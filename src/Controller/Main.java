@@ -36,7 +36,7 @@ public class Main {
 		JFrame frame = new JFrame("Login");
 		frame.setSize(600, 330);
 		frame.setLocationRelativeTo(null);
-		frame.getContentPane().setBackground(new Color(250, 206, 27));
+		frame.getContentPane().setBackground(new Color(135, 206, 235));
 		frame.setLayout(new BorderLayout());
 		
 		JLabel title = new JLabel("Welcome to Car Rental System", 35);
@@ -56,16 +56,18 @@ public class Main {
 		
 		JPasswordField password = new JPasswordField(22);
 		panel.add(password);
-		
-		JButton createAcc = new JButton("Create New Account", 22);
-		createAcc.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				new AddNewAccount(0).operation(database, frame, null);
-				frame.dispose();
-			}
-		});
-		panel.add(createAcc);
+
+
+		//create new user acc, need delete
+//		JButton createAcc = new JButton("Create New Account", 22);
+//		createAcc.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				new AddNewAccount(0).operation(database, frame, null);
+//				frame.dispose();
+//			}
+//		});
+//		panel.add(createAcc);
 		
 		ArrayList<User> users = new ArrayList<>();
 		try {
@@ -80,19 +82,10 @@ public class Main {
 				String phoneNumber = rs.getString("PhoneNumber");
 				String pass = rs.getString("Password");
 				int type = rs.getInt("Type");
-				
-				if (type==0) {
-					
-					user = new Client();
-					user.setID(ID);
-					user.setFirstName(firstName);
-					user.setLastName(lastName);
-					user.setEmail(em);
-					user.setPhoneNumber(phoneNumber);
-					user.setPassword(pass);
-					users.add(user);
-					
-				} else if (type==1) {
+
+				System.out.println("check Type before if: "+type);
+
+					if (type==1) {
 					
 					user = new Admin();
 					user.setID(ID);
@@ -103,6 +96,12 @@ public class Main {
 					user.setPassword(pass);
 					users.add(user);
 				}
+//					else if (type != 1) {
+//
+//						JOptionPane.showMessageDialog(frame, "Can't login with this account");
+//						return;
+//
+//					}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -137,6 +136,8 @@ public class Main {
 				}
 			}
 		});
+		JLabel gretting = new JLabel("Please login to continue", 22);
+		panel.add(gretting);
 		panel.add(login);
 		
 		frame.add(panel, BorderLayout.CENTER);

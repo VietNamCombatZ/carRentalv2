@@ -43,18 +43,20 @@ this.database = database;
 		frame = new JFrame("Rent Car");
 		frame.setSize(600, 650);
 		frame.setLocationRelativeTo(f);
-		frame.getContentPane().setBackground(new Color(250, 206, 27));
+		frame.getContentPane().setBackground(new Color(135, 206, 235));
 		frame.setLayout(new BorderLayout());
 		
 		JLabel title = new JLabel("Rent Car", 35);
 		title.setBorder(BorderFactory.createEmptyBorder(20, 0, 0, 0));
 		frame.add(title, BorderLayout.NORTH);
 		
-		JPanel panel = new JPanel(new GridLayout(8, 2, 15, 15));
+		JPanel panel = new JPanel(new GridLayout(9, 2, 15, 15));
 		panel.setBackground(null);
 		panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-		
-		panel.add(new JLabel("ID:", 22));
+
+
+		//Id car
+		panel.add(new JLabel("Car ID:", 22));
 		
 		String[] ids = new String[] {" "};
 		ArrayList<Integer> idsArray = new ArrayList<>();
@@ -83,7 +85,35 @@ this.database = database;
 			}
 		});
 		panel.add(id);
-		
+
+
+		//userId
+		panel.add(new JLabel("User ID:", 22));
+
+		String[] userIds = new String[] { " " };
+		ArrayList<Integer> userIdArray = new ArrayList<>();
+		try {
+			ResultSet rsUsers = database.getStatement()
+					.executeQuery("SELECT `ID` FROM `users` WHERE `Type` = 0;");
+			while (rsUsers.next()) {
+				userIdArray.add(rsUsers.getInt("ID"));
+			}
+		} catch (SQLException eUser) {
+			JOptionPane.showMessageDialog(frame, "Error loading users: " + eUser.getMessage());
+			frame.dispose();
+		}
+
+		userIds = new String[userIdArray.size() + 1];
+		userIds[0] = " ";
+		for (int i = 1; i <= userIdArray.size(); i++) {
+			userIds[i] = String.valueOf(userIdArray.get(i - 1));
+		}
+
+		Model.JComboBox userIdComboBox = new Model.JComboBox(userIds, 22);
+		panel.add(userIdComboBox);
+
+
+		//brand
 		panel.add(new JLabel("Brand:", 22));
 		
 		brand = new JTextField(22);
@@ -173,10 +203,23 @@ this.database = database;
 					double total = car.getPrice()*hoursInt;
 					
 					Rent rent = new Rent();
-					
+
+
+					//old code
+//					String insert = "INSERT INTO `rents`(`ID`, `User`, `Car`, `DateTime`, `Hours`,"
+//							+ " `Total`, `Status`) VALUES ('"+ID+"','"+user.getID()+"',"
+//									+ "'"+car.getID()+"','"+rent.getDateTime()+"','"+hoursInt+"',"
+//											+ "'"+total+"','0');";
+
+					String selectedUserId = userIdComboBox.getSelectedItem().toString();
+					if (selectedUserId.equals(" ")) {
+						JOptionPane.showMessageDialog(frame, "User ID cannot be empty");
+						return;
+					}
+
 					String insert = "INSERT INTO `rents`(`ID`, `User`, `Car`, `DateTime`, `Hours`,"
-							+ " `Total`, `Status`) VALUES ('"+ID+"','"+user.getID()+"',"
-									+ "'"+car.getID()+"','"+rent.getDateTime()+"','"+hoursInt+"',"
+							+ " `Total`, `Status`) VALUES ('"+ID+"','"+selectedUserId+"',"+
+									"'"+car.getID()+"','"+rent.getDateTime()+"','"+hoursInt+"',"
 											+ "'"+total+"','0');";
 					
 					database.getStatement().execute(insert);
