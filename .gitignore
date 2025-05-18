@@ -5,6 +5,7 @@ out/
 
 ### Eclipse ###
 .idea/
+.idea
 
 .apt_generated
 .classpath
